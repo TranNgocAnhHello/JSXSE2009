@@ -47,24 +47,11 @@ function FollowButton() {
   };
 
   return (
-    <div style={{ textAlign: 'center', margin: '20px 0' }}>
-      <button 
-        onClick={handleClick}
-        style={{
-          backgroundColor: isFollowing ? '#e74c3c' : '#3498db',
-          color: 'white',
-          padding: '12px 24px',
-          fontSize: '16px',
-          fontWeight: 'bold',
-          border: 'none',
-          borderRadius: '8px',
-          cursor: 'pointer',
-          transition: 'all 0.3s ease'
-        }}
-      >
+    <div>
+      <button onClick={handleClick}>
         {isFollowing ? '✓ Following' : '+ Follow'}
       </button>
-      <p style={{ marginTop: '10px', fontSize: '14px', color: '#bdc3c7' }}>
+      <p>
         {followCount} {followCount === 1 ? 'person' : 'people'} following
       </p>
     </div>
