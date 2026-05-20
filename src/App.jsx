@@ -35,15 +35,39 @@ function Header() {
 
 function FollowButton() {
   const [isFollowing, setIsFollowing] = useState(false);
+  const [followCount, setFollowCount] = useState(0);
 
   const handleClick = () => {
+    if (!isFollowing) {
+      setFollowCount(followCount + 1);
+    } else {
+      setFollowCount(followCount - 1);
+    }
     setIsFollowing(!isFollowing);
   };
 
   return (
-    <button onClick={handleClick}>
-      {isFollowing ? "Following" : "Follow"}
-    </button>
+    <div style={{ textAlign: 'center', margin: '20px 0' }}>
+      <button 
+        onClick={handleClick}
+        style={{
+          backgroundColor: isFollowing ? '#e74c3c' : '#3498db',
+          color: 'white',
+          padding: '12px 24px',
+          fontSize: '16px',
+          fontWeight: 'bold',
+          border: 'none',
+          borderRadius: '8px',
+          cursor: 'pointer',
+          transition: 'all 0.3s ease'
+        }}
+      >
+        {isFollowing ? '✓ Following' : '+ Follow'}
+      </button>
+      <p style={{ marginTop: '10px', fontSize: '14px', color: '#bdc3c7' }}>
+        {followCount} {followCount === 1 ? 'person' : 'people'} following
+      </p>
+    </div>
   );
 }
 
